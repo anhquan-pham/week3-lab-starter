@@ -1,3 +1,5 @@
+import { School } from "./common";
+
 // TODO: Create a type for staff ids, which should be strings
 type StaffId = string;
 // TODO: Create a type for staff roles, which can be "Instructor", "Program Chair", "Coordinator", or "Advisor"
@@ -18,14 +20,14 @@ type StaffRole = "instructor" | "program chair" | "coordinator" | "advisor";
 // an optional array of course ids that this staff member teaches
 
 export interface Staff {
-    id : StaffId;
-    name : string;
-    role : StaffRole;
-    school : import("./common").School;
-    officeLocation? : string;
-    emailAddress? : string;
-    startYear? : number;
-    specialties : string[];
-    funFact? : string;
-    courseIds? : string[];
+  id: StaffId;
+  name: string;
+  role: StaffRole;
+  school: School;
+  officeLocation?: string;
+  emailAddress?: string;
+  startYear?: number;
+  specialties: string[];
+  funFact?: string;
+  courseIds?: string[];
 }
