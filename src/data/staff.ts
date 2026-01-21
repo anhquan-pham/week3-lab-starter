@@ -1,5 +1,67 @@
 import type { Staff } from "../types/staff";
 
 export const staff: Staff[] = [
-  // add staff members here
+  {
+    id: "staff-001",
+    name: "Dr. Sarah Chen",
+    role: "instructor",
+    school: "School for Advanced Digital Technology",
+    officeLocation: "MC Building, Room 324",
+    emailAddress: "sarah.chen@sait.ca",
+    startYear: 2018,
+    specialties: ["Web Development", "React", "TypeScript", "UI/UX Design"],
+    funFact: "Built her first website at age 12 and never looked back!",
+    courseIds: ["course-001", "course-002"],
+  },
+  {
+    id: "staff-002",
+    name: "James Anderson",
+    role: "program chair",
+    school: "School for Advanced Digital Technology",
+    officeLocation: "MC Building, Room 410",
+    emailAddress: "james.anderson@sait.ca",
+    startYear: 2015,
+    specialties: [
+      "Software Engineering",
+      "Project Management",
+      "Agile Development",
+    ],
+    funFact: "Has climbed all of Alberta's highest peaks",
+  },
+  {
+    id: "staff-003",
+    name: "Maria Rodriguez",
+    role: "coordinator",
+    school: "School of Business",
+    officeLocation: "Heritage Hall, Room 205",
+    emailAddress: "maria.rodriguez@sait.ca",
+    startYear: 2020,
+    specialties: ["Business Administration", "Entrepreneurship", "Marketing"],
+    courseIds: ["course-003"],
+  },
+  {
+    id: "staff-004",
+    name: "David Kim",
+    role: "instructor",
+    school: "MacPhail School of Energy",
+    officeLocation: "Stan Grad Centre, Room 118",
+    emailAddress: "david.kim@sait.ca",
+    startYear: 2019,
+    specialties: [
+      "Renewable Energy",
+      "Environmental Technology",
+      "Sustainability",
+    ],
+    funFact: "Worked on solar panel installations in over 15 countries",
+  },
+  {
+    id: "staff-005",
+    name: "Emily Thompson",
+    role: "advisor",
+    school: "School of Health and Public Safety",
+    officeLocation: "Senator Burns Building, Room 302",
+    emailAddress: "emily.thompson@sait.ca",
+    startYear: 2021,
+    specialties: ["Student Support", "Career Counseling", "Academic Planning"],
+  }
 ];
