@@ -22,9 +22,11 @@ export default function StaffCard({ person }: Props) {
   // if the values will be used in the log function as well, create variables for them here
 const{name,role,school,officeLocation,emailAddress,startYear,specialties,funFact,courseIds}
   = person;
-const nameAndRole = `Staff: ${name} | ${role}`
-const Location = `officeLocation: ${officeLocation ? officeLocation : "N/A"}`
-const constactEmail = `Email: ${emailAddress ? emailAddress : "N/A"}`
+const nameAndRoleAndOffice = `Staff: ${name} | ${role} | ${officeLocation}`
+const started = `Started: ${startYear}`
+const teaches = `Teaches: ${courseIds}`
+const specialtiesList = `Specialties: ${specialties.join(',')} `
+const funFactFormatted = `Fun fact: ${funFact}`
 
   // TODO: Create a function called logStaffInfo that logs a formatted summary of the staff member to the console
   // Example output:
@@ -34,9 +36,11 @@ const constactEmail = `Email: ${emailAddress ? emailAddress : "N/A"}`
   // Specialties: Web Development, Mobile Development, UI/UX Design
   // Fun fact: I once climbed Mount Everest.
 const logResourceInfo = () => {
-  console.log(nameAndRole)
-  console.log(constactEmail)
-  console.log(Location)
+  console.log(nameAndRoleAndOffice)
+  console.log(started)
+  console.log(teaches)
+  console.log(specialtiesList)
+  console.log(funFactFormatted)
 }
   // TODO: Create the TSX for the staff card layout
   // There should be a Pressable as the root element, with onPress set to the logStaffInfo function created above

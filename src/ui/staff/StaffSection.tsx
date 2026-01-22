@@ -1,4 +1,3 @@
-import { View } from "react-native";
 import Section from "../components/Section";
 import StaffList from "./StaffList";
 
