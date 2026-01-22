@@ -55,9 +55,16 @@ const logResourceInfo = () => {
   // A Text for the specialties (display only the first three specialties, separated by commas)
   // The FunFact component created above, passing in the fun fact text
   return <Pressable onPress={logResourceInfo} style={styles.card}>
-    <View>
-      
+    <View style={styles.topRow}>
+      <Text style={styles.name}>{name}</Text>
+      <Text style={styles.badge}>{role}</Text>
     </View>
+    <Text style={styles.meta}>{school}</Text>
+    <Text style={styles.meta}>Office: {officeLocation ? officeLocation : "N/A"}</Text>
+    {startYear && <Text style={styles.meta}>Started: {startYear}</Text>}
+    <Text style={styles.meta}>Teaches: {courseIds ? courseIds.join(', ') : "N/A"}</Text>
+    <Text style={styles.meta}>Specialties: {specialties.slice(0, 3).join(', ')}</Text>
+    <Text style={styles.funFact}>Fun fact: {funFact}</Text>
     </Pressable>
 }
 
