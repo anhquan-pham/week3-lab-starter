@@ -1,5 +1,64 @@
 import type { Program } from "../types/program";
 
 export const programs: Program[] = [
-  // add programs here
+  {
+    id: "prog-001",
+    name: "Petroleum Engineering Technology",
+    credential: "Diploma",
+    school: "MacPhail School of Energy",
+    lengthInYears: 2,
+    numberOfCredits: 60,
+    deliveryMethod: "In-person",
+    careerPaths: ["Petroleum Engineer", "Production Operator", "Field Technician"],
+    note: "Highly demanded in the energy sector"
+  },
+  {
+    id: "prog-002",
+    name: "Artificial Intelligence Specialist",
+    credential: "Degree",
+    school: "School for Advanced Digital Technology",
+    lengthInYears: 3,
+    numberOfCredits: 90,
+    deliveryMethod: "Blended",
+    careerPaths: ["AI Developer", "Machine Learning Engineer", "Data Scientist"],
+    note: "Emerging technology program"
+  },
+  {
+    id: "prog-003",
+    name: "Business Administration",
+    credential: "Diploma",
+    school: "School of Business",
+    lengthInYears: 2,
+    numberOfCredits: 60,
+    careerPaths: ["Business Manager", "Financial Analyst", "Project Coordinator"]
+  },
+  {
+    id: "prog-004",
+    name: "Construction Management",
+    credential: "Certificate",
+    school: "School of Construction",
+    lengthInYears: 1,
+    numberOfCredits: 30,
+    deliveryMethod: "In-person"
+  },
+  {
+    id: "prog-005",
+    name: "Nursing",
+    credential: "Degree",
+    school: "School of Health and Public Safety",
+    lengthInYears: 4,
+    numberOfCredits: 120,
+    careerPaths: ["Registered Nurse", "Nursing Manager"],
+    note: "Registered Nursing program"
+  },
+  {
+    id: "prog-006",
+    name: "Culinary Arts",
+    credential: "Diploma",
+    school: "School of Hospitality and Tourism",
+    lengthInYears: 2,
+    numberOfCredits: 60,
+    deliveryMethod: "In-person",
+    careerPaths: ["Chef", "Food Service Manager", "Culinary Instructor"]
+  }
 ];
