@@ -1,37 +1,51 @@
-import { StyleSheet } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Student } from "../../types/student";
 
-// TODO: Make a Props type for the props of our StudentCard component
+interface Props {
+  student: Student;
+}
 
-// TODO: Make a FunFact component that takes an optional text prop (no need for a type for this prop, just use inline typing)
-// This prop is a helper that will render null if no text is provided or if the text is an empty string (or only whitespace, use .trim() to check).
-// If there is text, render a Text component with the style styles.funFact that displays "Fun fact: " followed by the text prop.
+function FunFact({ text }: { text?: string }) {
+  if (!text || !text.trim()) {
+    return null;
+  }
+  return <Text style={styles.funFact}>Fun fact: {text}</Text>;
+}
+export default function StudentCard({ student }: Props) {
+  const githubDisplay = student.githubUsername
+    ? `github.com/${student.githubUsername}`
+    : "N/A";
+  const interestsDisplay = student.interests.slice(0, 4).join(", ");
+  const programDisplay = student.programId || "Not assigned";
+  const coursesDisplay =
+    student.currentCourseIds && student.currentCourseIds.length > 0
+      ? student.currentCourseIds.join(", ")
+      : "N/A";
 
-export default function StudentCard(/*TODO: Add props here (use destructuring)*/) {
-  // TODO: Use descructuring to extract values from the student
-  // If values need to be modified or altered for display (ex: a default value added if no github is specified),
-  // you can do that directly in the tsx code below, or create new variables here
-  // if the values will be used in the log function as well, create variables for them here
+  const logStudentInfo = () => {
+    let message = `Student: ${student.name} | Year ${student.year} | ${student.status} | Program: ${programDisplay} | GitHub: ${githubDisplay}`;
+    message += `\nInterests: ${interestsDisplay}`;
+    message += `\nCourses: ${coursesDisplay}`;
+    if (student.funFact) {
+      message += `\nFun fact: ${student.funFact}`;
+    }
+    console.log(message);
+  };
 
-  // TODO: Create a function called logStudentInfo that logs a formatted summary of the student to the console
-  // Example output:
-  // Student: John Smith | year 2 | full-time | program: Diploma in Software Development | github: github.com/johnsmith
-  // Interests: Web Development, Mobile Development, Game Development
-  // Courses: CPRG 101, CPRG 202, CPRG 303 (once that field has been added)
-  // Fun fact: I have a black belt in karate.
-
-  // TODO: Create the TSX for the student card layout
-  // There should be a Pressable as the root element, with onPress set to the logStudentInfo function created above
-  // Inside the Pressable, create the following elements:
-  // A View for the top row, containing:
-  //   A Text for the student's name
-  //   A Text for the student's year (this will act as a badge)
-  // A Text for the student's status (full-time/part-time)
-  // A Text for the student's program name (once that field has been added)
-  // A Text for the student's GitHub (or "GitHub: N/A" if none is specified)
-  // A Text for the student's interests (display only the first four interests, separated by commas)
-  // A Text for the course labels (once that field has been added)
-  // The FunFact component created above, passing in the fun fact text
-  return null;
+  return (
+    <Pressable onPress={logStudentInfo} style={styles.card}>
+      <View style={styles.topRow}>
+        <Text style={styles.name}>{student.name}</Text>
+        <Text style={styles.badge}>Year {student.year}</Text>
+      </View>
+      <Text style={styles.meta}>{student.status}</Text>
+      <Text style={styles.meta}>Program: {programDisplay}</Text>
+      <Text style={styles.meta}>GitHub: {githubDisplay}</Text>
+      <Text style={styles.meta}>Interests: {interestsDisplay}</Text>
+      <Text style={styles.meta}>Courses: {coursesDisplay}</Text>
+      <FunFact text={student.funFact} />
+    </Pressable>
+  );
 }
 
 const styles = StyleSheet.create({

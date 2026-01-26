@@ -17,3 +17,20 @@
 // an optional array of current course ids
 
 export interface Student {}
+// import { CourseId } from "./course";
+// import { ProgramId } from "./program";
+
+export type StudentId = string;
+export type StudentStatus = "Full-time" | "Part-time";
+
+export interface Student {
+  id: StudentId;
+  name: string;
+  year: number;
+  status: StudentStatus;
+  interests: string[];
+  githubUsername?: string;
+  funFact?: string;
+  // programId?: ProgramId;
+  // currentCourseIds?: CourseId[];
+}
