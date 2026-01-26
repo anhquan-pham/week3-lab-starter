@@ -1,12 +1,27 @@
-import { StyleSheet } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
+import { Course } from "../../types/course";
 
 // TODO: Make a Props type for the props of our CourseCard component
+type CourseCardProps = {
+  course: Course;
+};
 
-export default function CourseCard(/*TODO: Add props here (use desctructuring)*/) {
+export default function CourseCard({ course }: CourseCardProps) {
   // TODO: Use descructuring to extract values from the course
   // If values need to be modified or altered for display (ex: term number to "Term X"),
   // you can do that directly in the tsx code below, or create new variables here
   // if the values will be used in the log function as well, create variables for them here
+  const {
+    code,
+    title,
+    credits,
+    description,
+    termNumber,
+    deliveryMethod,
+    preRequisites,
+    programIds,
+    note,
+  } = course;
 
   // TODO: Create a function called logCourseInfo that logs a formatted summary of the course to the console
   // Example output:
@@ -29,9 +44,23 @@ export default function CourseCard(/*TODO: Add props here (use desctructuring)*/
   // (The three text components above should use the meta style)
   // If there is a note, a Text for the note
 
-  return null;
+  return (
+    <Pressable style={styles.card} onPress={() => logCourseInfo(course)}>
+      <View style={styles.topRow}></View>
+    </Pressable>
+  );
 }
 
+export function logCourseInfo(course: Course) {
+  console.log(
+    `Course: ${course.code} | ${course.title} | credits: ${course.credits || 3} | Term ${course.termNumber || "N/A"} | ${course.deliveryMethod || "N/A"}`,
+  );
+  console.log(`Prereqs: ${course.preRequisites?.join(", ") || "None"}`);
+  console.log(`Programs: ${course.programIds?.join(", ") || "None"} `);
+  if (course.note) {
+    console.log(`Note: ${course.note}`);
+  }
+}
 const styles = StyleSheet.create({
   card: {
     borderWidth: 1,
